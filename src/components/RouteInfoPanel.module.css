@@ -1,0 +1,208 @@
+/* ── 데스크탑: 좌측 패널 ─────────────────────── */
+.desktopPanel {
+  display: none; /* 모바일에서는 숨김 */
+}
+
+/* ── 모바일: 필터 아래 컴팩트 바 (bottom 영역 비워야 footer와 안 겹침) ── */
+.mobileBar {
+  position: fixed;
+  top: calc(var(--header-height) + 62px); /* 필터 칩(~38px) 아래 */
+  left: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 9px 13px;
+  z-index: 999; /* 필터(1000)보다 낮게 */
+  pointer-events: auto;
+  animation: fadeDown 0.22s ease-out;
+  overflow: hidden;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobileSummary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.mobileSummary:last-child {
+  margin-bottom: 0;
+}
+
+.headerIcon {
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.mobileTotalDist {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+}
+
+.mobileSep {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.mobileFlat {
+  font-size: 12.5px;
+  color: #888;
+  font-weight: 500;
+}
+
+.mobileRampCount {
+  font-size: 12.5px;
+  color: #555;
+  font-weight: 600;
+}
+
+.mobileChips {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mobileChips::-webkit-scrollbar { display: none; }
+
+.mobileChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── 데스크탑 분기 ────────────────────────────── */
+@media (min-width: 768px) {
+  .desktopPanel {
+    display: block;
+    position: fixed;
+    left: 16px;
+    top: calc(var(--header-height) + 68px);
+    width: 210px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    z-index: 1000;
+    pointer-events: auto;
+    animation: fadeSlideIn 0.22s ease-out;
+  }
+
+  .mobileBar {
+    display: none; /* 데스크탑에서는 숨김 */
+  }
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 공통: 패널 헤더 ──────────────────────────── */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 13px 9px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.headerTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #222;
+  flex: 1;
+  letter-spacing: -0.2px;
+}
+
+.totalDistBadge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  background: #f4f4f5;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+/* ── 경사로 없음 ─────────────────────────────── */
+.noRamp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 13px;
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+}
+
+/* ── 경사로 목록 (데스크탑) ───────────────────── */
+.rampList {
+  padding: 6px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rampItem {
+  padding: 8px 10px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+}
+
+.rampTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.levelBadge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.rampDist {
+  font-size: 10.5px;
+  color: #999;
+  font-weight: 500;
+}
+
+.rampDetail {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dirIcon {
+  flex-shrink: 0;
+  color: #666;
+}
+
+.rampAngle {
+  font-size: 11px;
+  color: #555;
+  font-weight: 500;
+}

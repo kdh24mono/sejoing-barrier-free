@@ -1,0 +1,239 @@
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  z-index: 3000;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sheet {
+  width: 100%;
+  background: #fff;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.18);
+  animation: slideUp 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0.6; }
+  to   { transform: translateY(0);   opacity: 1;   }
+}
+
+/* 드래그 핸들 */
+.handle {
+  width: 36px;
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+/* 목적지 헤더 영역 */
+.destHeader {
+  position: relative;
+  padding: 14px 56px 16px 22px;
+}
+
+.destMeta {
+  margin-bottom: 5px;
+}
+
+.destChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(192, 0, 0, 0.08);
+  color: var(--primary-color, #c00000);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.2px;
+}
+
+.destName {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  background: #f4f4f5;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #666;
+  transition: background 0.14s;
+}
+
+.closeBtn:hover {
+  background: #e8e8ea;
+  color: #333;
+}
+
+.divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 0;
+}
+
+/* 본문 */
+.body {
+  padding: 20px 18px 32px;
+}
+
+.question {
+  font-size: 13.5px;
+  color: #888;
+  font-weight: 600;
+  margin: 0 0 14px 2px;
+}
+
+/* 옵션 카드 목록 */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.optionCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 16px 16px 16px;
+  border-radius: 18px;
+  border: 1.5px solid #ebebeb;
+  background: #fafafa;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.16s ease;
+}
+
+.optionCard:hover:not(:disabled) {
+  border-color: #d0d0d0;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  transform: translateY(-1px);
+}
+
+.optionCard:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* 현재위치 카드 — 호버 색조 */
+.optionNav:hover:not(:disabled) {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+/* 지도선택 카드 — 호버 색조 */
+.optionMap:hover:not(:disabled) {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+/* 아이콘 래퍼 */
+.optionIconWrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconBlue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.iconGreen {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* 텍스트 영역 */
+.optionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.optionTitle {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.2px;
+}
+
+.optionDesc {
+  font-size: 12.5px;
+  color: #888;
+  font-weight: 400;
+}
+
+.optionArrow {
+  color: #ccc;
+  flex-shrink: 0;
+  transition: color 0.14s;
+}
+
+.optionCard:hover:not(:disabled) .optionArrow {
+  color: #aaa;
+}
+
+/* 취소 버튼 */
+.cancelBtn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  background: #f4f4f5;
+  color: #666;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.14s;
+}
+
+.cancelBtn:hover {
+  background: #ebebec;
+  color: #444;
+}
+
+/* ── 데스크탑 ─────────────────────────────────── */
+@media (min-width: 768px) {
+  .backdrop {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .sheet {
+    width: 400px;
+    border-radius: 0 28px 0 0;
+    box-shadow: 4px -4px 30px rgba(0, 0, 0, 0.14);
+  }
+
+  .handle {
+    display: none;
+  }
+}

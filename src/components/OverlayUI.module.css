@@ -1,0 +1,172 @@
+/* ── 상단 좌측 필터 칩 ───────────────────────── */
+.filterRow {
+  position: fixed;
+  top: calc(var(--header-height) + 12px);
+  left: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  pointer-events: auto;
+  z-index: 1000;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-bottom: 2px; /* 그림자 클리핑 방지 */
+}
+
+.filterRow::-webkit-scrollbar { display: none; }
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #555;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 9px 15px;
+  border-radius: 100px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.16s ease;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.filterButton:hover {
+  background: white;
+  color: #111;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.filterButton.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 14px rgba(192, 0, 0, 0.3);
+}
+
+.filterButton.active:hover {
+  background: #a80000;
+  transform: translateY(-1px);
+}
+
+.filterIcon {
+  flex-shrink: 0;
+}
+
+.filterLabel {
+  line-height: 1;
+}
+
+/* ── 우측 하단 액션 버튼 ─────────────────────── */
+.footer {
+  position: fixed;
+  bottom: 24px;
+  right: 18px;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 1000;
+}
+
+.infoButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 10px 18px;
+  border-radius: 100px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #555;
+  text-decoration: none;
+  transition: all 0.16s ease;
+}
+
+.infoButton:hover {
+  background: white;
+  color: #222;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  transform: translateY(-1px);
+}
+
+.editButton {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #333;
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  padding: 11px 20px;
+  border-radius: 100px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.16s ease;
+}
+
+.editButton:hover {
+  background: white;
+  border-color: rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  transform: translateY(-1px);
+}
+
+.editButtonActive {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #111;
+  color: white;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.16s ease;
+}
+
+.editButtonActive:hover {
+  background: #000;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  transform: translateY(-1px);
+}
+
+.clearRouteButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 100px;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: all 0.16s ease;
+}
+
+.clearRouteButton:hover {
+  background: #1d4ed8;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
+  transform: translateY(-1px);
+}
